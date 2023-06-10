@@ -12,7 +12,7 @@ def calculate_bmi():
         result_label.config(text="Enter both weight and height!")
     else:
         try:
-            bmi = float(weight) / (float(height) / 100) ** 2
+            bmi = round((float(weight) / (float(height) / 100) ** 2),2)
             result_string = write_result(bmi)
             result_label.config(text=result_string)
             result_label.place(x=20, y=135)
@@ -20,7 +20,7 @@ def calculate_bmi():
             result_label.config(text="Enter a valid number!")
 
 def write_result(bmi):
-    result_string = f"Your BMI is {round(bmi,2)}. You are "
+    result_string = f"Your BMI is {bmi} You are "
     if bmi < 18.5:
         result_string += "under weight."
     elif 18.5 < bmi < 24.9:
